@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Evaluate new using NLP</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <p>Evaluate any article by entering its URL</p>
+        <p>Example: https://jamesclear.com/five-step-creative-process</p>
+        <section>
+          <form id="form" onsubmit="return Client.submitForm(e)">
+            <label for="article-url" class = "input-label">URL</label>
+            <input id="article-url" onsubmit="return Client.submitForm(e)" type="text" name="input" value="" placeholder="Enter Article URL here" />
+            <button
+              type="submit"
+              class="btn-submit"
+              id="submit-btn"
+            >
+              Submit
+            </button>
+          </form>
+        </section>
+
+        <section class = "analysis-results">
+          <div id="text"></div>
+          <div id="agreement"></div>
+          <div id="subjectivity"></div>
+          <div id="confidence"></div>
+          <div id="irony"></div>  
+          <div id="score_tag"></div>
+        </section>
+      </div>
+    </main>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+        })
+      }
+    </script>
+  </body>
+</html>
